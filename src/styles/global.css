@@ -111,7 +111,10 @@
 
 .footer a {
   color: #696b79;
-  text-decoration: underline;
+  text-decoration: none;
+}
+footer a:hover{
+  cursor: pointer;
 }
 
 .footer a:hover {
@@ -190,5 +193,166 @@
 .footer-bottom a:hover {
   text-decoration: underline;
 }
+.office-row {
+  display: flex;
+  align-items: flex-end; /* phone aligns with last line of address */
+}
+
+.office-address {
+  text-align: left;
+}
+
+.office-address h5 {
+  color: #282c3f;
+  font-size: 17px;
+  margin-bottom: 6px;  /* gap between heading & list */
+}
+
+.office-address ul {
+  margin: 0;   /* remove default ul spacing */
+  padding: 0;
+}
+
+.office-address li {
+  color: grey;
+  font-size: 17px;
+  margin: 0;          /* remove extra gap */
+  line-height: 1.3;   /* tighter line spacing */
+}
+
+.phone {
+  color: grey;
+  font-size: 17px;
+  text-align: right;
+  white-space: nowrap;   /* keep telephone in one line */
+}
+
+.phone p {
+  margin: 0;   /* remove spacing between lines */
+  color:grey; /* prevent blue link coloring */
+}
+.phone a{
+  color: blue;
+  text-decoration: none;
+}
+/* Headings */
+.section-heading {
+  color: black;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Grey paragraph text */
+.section-text {
+  color: grey;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+/* Ordered list */
+.shopping-list {
+  padding-left: 20px; /* keep numbering aligned left */
+  margin-bottom: 20px;
+}
+
+.shopping-list li {
+  margin-bottom: 12px;
+  text-align: left;
+  color: grey;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.shopping-list li b {
+  color: black; /* Bold heading in black */
+}
+
+.shopping-list li span {
+  color: grey; /* Description in grey */
+}
+
+.shopping-list a {
+  color: #526cd0; /* Myntra’s blue links */
+  text-decoration: none;
+}
+
+.shopping-list a:hover {
+  text-decoration: underline;
+}
+.section-block {
+    text-align: left;   /* makes sure all text is left-aligned */
+    margin: 0;          /* removes unwanted margin */
+    padding: 0;         /* removes padding that might push content */
+  }
+
+  .section-block h6 {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .section-block p {
+    color: grey;
+    margin-bottom: 12px;
+  }
+
+  .section-block b {
+    display: block;     /* puts "Insider", "Elite", etc. on their own line */
+    margin-top: 12px;
+    color: black;
+  }
+
+  .section-block ul {
+    list-style-type: disc;
+    padding-left: 20px; /* makes bullet indent look neat */
+    color: grey;
+  }
+
+  .section-block ul li {
+    margin-bottom: 6px;
+  }
+  .section-block {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.section-block h6 {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-block p {
+  color: grey;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.section-block ol {
+  list-style-type: decimal; /* ensures numbered list */
+  padding-left: 20px;
+}
+
+.section-block ol li {
+  margin-bottom: 16px;
+}
+
+.section-block ol li b {
+  display: block; /* bold title on its own line */
+  color: black;
+  margin-bottom: 4px;
+}
+
+.section-block ol li p {
+  color: grey;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
 
 
