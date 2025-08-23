@@ -353,6 +353,57 @@ footer a:hover{
   line-height: 1.5;
 }
 
+/* FilterSidebar */
+.filter-sidebar {
+  border: 1px solid black;
+  width: 330px;
+  height: 800px;
+}
+
+.filter-sidebar h4 {
+  margin: 0; /* heading aur link ko line me set karega */
+}
+
+.filter-sidebar a {
+  color: rgb(252, 86, 113); /* Myntra pink */
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.filter-sidebar h4{
+  font-size: 20px;
+}
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Filter Price */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 5px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(252, 86, 113); /* pink */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(252, 86, 113);
+  cursor: pointer;
+}
+
 
 
 

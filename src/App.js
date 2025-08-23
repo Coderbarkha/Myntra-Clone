@@ -1,13 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import Footer from'./components/Footer';
+import Footer from './components/Footer';
+import FilterSidebar from './components/FilterSidebar';
 
 function App() {
+
   return (
     <div className="App">
-     <Navbar></Navbar>
-     <Footer></Footer>
+      <Navbar />
+      <FilterSidebar/>
+      <Footer />
     </div>
   );
 }
