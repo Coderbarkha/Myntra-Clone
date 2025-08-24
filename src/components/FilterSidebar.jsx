@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/global.css';
 import FilterPrice from './FilterPrice';
+import FilterColor from './FilterColor';
 
 function FilterSidebar(){
     const [FilterSelected, setFilterSelected] = useState(false);
@@ -14,6 +15,7 @@ function FilterSidebar(){
             </div>
             {/* Different  Filters  */}
             <FilterPrice/>
+            <FilterColor/>
         </aside>
     )
 }
