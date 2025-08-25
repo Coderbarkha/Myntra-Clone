@@ -476,6 +476,11 @@ footer a:hover{
   border: 1px solid #ccc; /* thin border to distinguish light colors */
 }
 
+.more-color{
+  color:rgb(252, 86, 113);
+  font-weight: lighter;
+}
+
 
 
 
