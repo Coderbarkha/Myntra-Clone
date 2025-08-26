@@ -357,7 +357,7 @@ footer a:hover{
 .filter-sidebar {
   border: 1px solid black;
   width: 330px;
-  height: 800px;
+  height: 2200px;
 }
 
 .filter-sidebar h4 {
@@ -458,14 +458,27 @@ footer a:hover{
   font-size: 14px;
   color: black;
 }
+/* Filter color */
 /* Search icon circle */
 .search-circle {
   width: 32px;
   height: 32px;
-  background-color: #e5e5e5; /* light grey */
+  background-color: #e5e5e5;
   border-radius: 50%;
   cursor: pointer;
 }
+
+.search-bar {
+  background-color: #e5e5e5; /* grey background */
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.search-bar input {
+  background: transparent;
+  outline: none;
+}
+
 
 /* Small color preview circle */
 .color-circle {
@@ -478,7 +491,7 @@ footer a:hover{
 
 .more-color{
   color:rgb(252, 86, 113);
-  font-weight: lighter;
+  font-weight:normal;
 }
 
 

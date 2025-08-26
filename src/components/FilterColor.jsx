@@ -1,555 +1,156 @@
-import { IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp, IoClose } from "react-icons/io5";
+import { useState } from "react";
 
 function FilterColor() {
-   function colorHandler(){
-    <div>
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "#F5F5DC" }}
-        ></div>
-        <span className="me-1">Beige</span>
-        <span className="text-muted">(8145)</span>
-      </div>
+  const [showMore, setShowMore] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "maroon" }}
-        ></div>
-        <span className="me-1">Maroon</span>
-        <span className="text-muted">(8108)</span>
-      </div>
+  // Main Colors
+  const mainColors = [
+    { name: "Black", color: "black", count: 42352 },
+    { name: "White", color: "white", count: 30179 },
+    { name: "Blue", color: "blue", count: 27123 },
+    { name: "Green", color: "green", count: 17868 },
+    { name: "Navy blue", color: "#000080", count: 17529 },
+    { name: "Grey", color: "grey", count: 15884 },
+    { name: "Red", color: "#D2042D", count: 11705 },
+  ];
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "yellow" }}
-        ></div>
-        <span className="me-1">Yellow</span>
-        <span className="text-muted">(7639)</span>
-      </div>
+  // Extra Colors
+  const extraColors = [
+    { name: "Beige", color: "#F5F5DC", count: 8145 },
+    { name: "Maroon", color: "maroon", count: 8108 },
+    { name: "Yellow", color: "yellow", count: 7639 },
+    { name: "Olive", color: "#808000", count: 6838 },
+    { name: "Brown", color: "brown", count: 6138 },
+    { name: "Pink", color: "pink", count: 6063 },
+    { name: "Purple", color: "purple", count: 4435 },
+    { name: "Orange", color: "orange", count: 4330 },
+    { name: "Mustard", color: "#FFCE1B", count: 3684 },
+    { name: "Teal", color: "teal", count: 3574 },
+    { name: "Peach", color: "#FFE5B4", count: 3050 },
+    { name: "Off white", color: "#FAF9F6", count: 2951 },
+    { name: "Lavender", color: "lavender", count: 2344 },
+    { name: "Rust", color: "#B7410E", count: 2037 },
+    { name: "Multi", color: "linear-gradient(135deg, #ff7a7a 0%, #ffd27a 50%, #7ad0ff 100%)", count: 1962 },
+    { name: "Sea Green", color: "seagreen", count: 1961 },
+    { name: "Cream", color: "#FFFDD0", count: 1840 },
+    { name: "Turquoise Blue", color: "turquoise", count: 1807 },
+    { name: "Charcoal", color: "#36454F", count: 1646 },
+    { name: "Grey Melange", color: "#CCCAC9", count: 1561 },
+    { name: "Burgundy", color: "#800020", count: 1128 },
+    { name: "Mauve", color: "#e0b0ff", count: 925 },
+    { name: "Khaki", color: "khaki", count: 760 },
+    { name: "Coral", color: "coral", count: 624 },
+    { name: "Coffee Brown", color: "#6F4E37", count: 579 },
+    { name: "Lime Green", color: "limegreen", count: 497 },
+    { name: "Taupe", color: "#483C32", count: 284 },
+    { name: "Gold", color: "gold", count: 217 },
+    { name: "Rose", color: "#F33A6A", count: 200 },
+    { name: "Camel Brown", color: "#C19A6B", count: 168 },
+    { name: "Tan", color: "#D2B48C", count: 161 },
+    { name: "Fluorescent Green", color: "#39FF14", count: 153 },
+    { name: "Violet", color: "violet", count: 150 },
+    { name: "Silver", color: "silver", count: 140 },
+    { name: "Steel", color: "#71797E", count: 92 },
+    { name: "Magenta", color: "magenta", count: 75 },
+    { name: "Assorted", color: "assorted", count: 71 },
+    { name: "Nude", color: "#F2D2BD", count: 55 },
+    { name: "Metallic", color: "#C0C0C0", count: 35 },
+    { name: "Rose Gold", color: "#B76E79", count: 26 },
+    { name: "Copper", color: "#B87333", count: 17 },
+    { name: "Bronze", color: "#B08D57", count: 9 },
+    { name: "Champagne", color: "#F7E7CE", count: 3 },
+    { name: "Transparent", color: "rgba(255,255,255,0.6)", count: 1 },
+    { name: "Skin", color: "#FFCC99", count: 1 },
+  ];
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "olivegreen" }}
-        ></div>
-        <span className="me-1">Olive</span>
-        <span className="text-muted">(6838)</span>
-      </div>
+  // Merge All Colors
+  const allColors = [...mainColors, ...extraColors];
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "brown" }}
-        ></div>
-        <span className="me-1">Brown</span>
-        <span className="text-muted">(6138)</span>
-      </div>
+  // Filtered list
+  const filteredColors = allColors.filter(c =>
+    c.name.toLowerCase().includes(query.toLowerCase())
+  );
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "pink" }}
-        ></div>
-        <span className="me-1">Pink</span>
-        <span className="text-muted">(6063)</span>
-      </div>
+  // 🔹 Color Row
+  const ColorRow = ({ color, name, count }) => (
+    <div className="d-flex align-items-center mb-2">
+      <input type="checkbox" className="form-check-input me-2" />
+      <div className="color-circle me-2" style={{ backgroundColor: color }}></div>
+      <span className="me-1">{name}</span>
+      <span className="text-muted">({count})</span>
+    </div>
+  );
 
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "purple" }}
-        ></div>
-        <span className="me-1">Purple</span>
-        <span className="text-muted">(4435)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "orange" }}
-        ></div>
-        <span className="me-1">Orange</span>
-        <span className="text-muted">(4330)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor:"mustard" }}
-        ></div>
-        <span className="me-1">Mustard</span>
-        <span className="text-muted">(3684)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "teal" }}
-        ></div>
-        <span className="me-1">Teal</span>
-        <span className="text-muted">(3574)</span>
-      </div>
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "peach" }}
-        ></div>
-        <span className="me-1">Peach</span>
-        <span className="text-muted">(3050)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "offwhite" }}
-        ></div>
-        <span className="me-1">Off white</span>
-        <span className="text-muted">(2951)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "lavender" }}
-        ></div>
-        <span className="me-1">Lavender</span>
-        <span className="text-muted">(2344)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "rust" }}
-        ></div>
-        <span className="me-1">Rust</span>
-        <span className="text-muted">(2037)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "multi" }}
-        ></div>
-        <span className="me-1">Multi</span>
-        <span className="text-muted">(1962)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "seagreen" }}
-        ></div>
-        <span className="me-1">Sea Green</span>
-        <span className="text-muted">(1961)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "cream" }}
-        ></div>
-        <span className="me-1">Cream</span>
-        <span className="text-muted">(1840)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "turquoise" }}
-        ></div>
-        <span className="me-1">Turquoise Blue</span>
-        <span className="text-muted">(1807)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "charcoal" }}
-        ></div>
-        <span className="me-1">Charcoal</span>
-        <span className="text-muted">(1646)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "#F5F5DC" }}
-        ></div>
-        <span className="me-1">Beige</span>
-        <span className="text-muted">(8145)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "greymelang" }}
-        ></div>
-        <span className="me-1">Grey Melang</span>
-        <span className="text-muted">(1561)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "burgundy" }}
-        ></div>
-        <span className="me-1">Burgundy</span>
-        <span className="text-muted">(1128)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "mauve" }}
-        ></div>
-        <span className="me-1">Mauve</span>
-        <span className="text-muted">(925)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "khaki" }}
-        ></div>
-        <span className="me-1">Khaki</span>
-        <span className="text-muted">(760)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "coral" }}
-        ></div>
-        <span className="me-1">Coral</span>
-        <span className="text-muted">(624)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "coffeebrown" }}
-        ></div>
-        <span className="me-1">Coffee Brown</span>
-        <span className="text-muted">(579)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "limegreen" }}
-        ></div>
-        <span className="me-1">Lime Green</span>
-        <span className="text-muted">(497)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "taupe" }}
-        ></div>
-        <span className="me-1">Taupe</span>
-        <span className="text-muted">(284)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "gold" }}
-        ></div>
-        <span className="me-1">Gold</span>
-        <span className="text-muted">(217)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "rose" }}
-        ></div>
-        <span className="me-1">Rose</span>
-        <span className="text-muted">(200)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "camelbrown" }}
-        ></div>
-        <span className="me-1">Camel Brown</span>
-        <span className="text-muted">(168)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "tan" }}
-        ></div>
-        <span className="me-1">Tan</span>
-        <span className="text-muted">(161)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "FluorescentGreen" }}
-        ></div>
-        <span className="me-1">Fluorescent Green</span>
-        <span className="text-muted">(153)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "violet" }}
-        ></div>
-        <span className="me-1">Violet</span>
-        <span className="text-muted">(150)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "silver" }}
-        ></div>
-        <span className="me-1">Silver</span>
-        <span className="text-muted">(140)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "steel" }}
-        ></div>
-        <span className="me-1">Steel</span>
-        <span className="text-muted">(92)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "magenta" }}
-        ></div>
-        <span className="me-1">Magenta</span>
-        <span className="text-muted">(75)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "assorted" }}
-        ></div>
-        <span className="me-1">Assorted</span>
-        <span className="text-muted">(71)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "nude" }}
-        ></div>
-        <span className="me-1">Nude</span>
-        <span className="text-muted">(55)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "metallic" }}
-        ></div>
-        <span className="me-1">Metallic</span>
-        <span className="text-muted">(35)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "rosegold" }}
-        ></div>
-        <span className="me-1">Rose Gold</span>
-        <span className="text-muted">(26)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "copper" }}
-        ></div>
-        <span className="me-1">Copper</span>
-        <span className="text-muted">(17)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "bronze" }}
-        ></div>
-        <span className="me-1">Bronze</span>
-        <span className="text-muted">(9)</span>
-      </div>
-
-       <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "Champagne" }}
-        ></div>
-        <span className="me-1">Champagne</span>
-        <span className="text-muted">(3)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "transparent" }}
-        ></div>
-        <span className="me-1">Transparent</span>
-        <span className="text-muted">(1)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "skin" }}
-        ></div>
-        <span className="me-1">Skin</span>
-        <span className="text-muted">(1)</span>
-      </div>
-      </div>
-
-
-   }
-  
   return (
     <div className="mb-3">
-      {/* Top Row: Heading + Search */}
+      {/* Header */}
       <div className="d-flex justify-content-between align-items-center mb-2">
-        <h4 className="fw-bold fs-6 text-dark m-0">COLOR</h4>
-        <div className="search-circle d-flex justify-content-center align-items-center">
-          <IoSearchSharp size={16} color="black" />
-        </div>
+        {!searchOpen ? (
+          <>
+            <h4 className="fw-bold fs-6 text-dark m-0">COLOR</h4>
+            <div
+              className="search-circle d-flex justify-content-center align-items-center"
+              onClick={() => setSearchOpen(true)}
+            >
+              <IoSearchSharp size={16} color="black" />
+            </div>
+          </>
+        ) : (
+          <div className="search-bar d-flex align-items-center w-100">
+            <input
+              type="text"
+              placeholder="Search color..."
+              className="flex-grow-1 bg-light px-2 py-1 border-0"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              autoFocus
+            />
+            <IoClose
+              size={20}
+              color="black"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                if (query) {
+                  setQuery("");
+                } else {
+                  setSearchOpen(false);
+                }
+              }}
+            />
+          </div>
+        )}
       </div>
 
-      {/* Color Options Below */}
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "black" }}
-        ></div>
-        <span className="me-1">Black</span>
-        <span className="text-muted">(42352)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "white" }}
-        ></div>
-        <span className="me-1">White</span>
-        <span className="text-muted">(30179)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "blue" }}
-        ></div>
-        <span className="me-1">Blue</span>
-        <span className="text-muted">(27123)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "green" }}
-        ></div>
-        <span className="me-1">Green</span>
-        <span className="text-muted">(17868)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "#000080" }}
-        ></div>
-        <span className="me-1">Navy blue</span>
-        <span className="text-muted">(17529)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "grey" }}
-        ></div>
-        <span className="me-1">Grey</span>
-        <span className="text-muted">(15884)</span>
-      </div>
-
-      <div className="d-flex align-items-center mb-2">
-        <input type="checkbox" className="form-check-input me-2" />
-        <div
-          className="color-circle me-2"
-          style={{ backgroundColor: "#D2042D" }}
-        ></div>
-        <span className="me-1">Red</span>
-        <span className="text-muted">(11705)</span>
-      </div>
-
-      <div className="more-color">
-          <a href="colorHandler">45+more</a>
-      </div>
+      {/* List */}
+      {!searchOpen ? (
+        <>
+          {mainColors.map((c, i) => (
+            <ColorRow key={i} {...c} />
+          ))}
+          {showMore &&
+            extraColors.map((c, i) => (
+              <ColorRow key={mainColors.length + i} {...c} />
+            ))}
+          <div
+            className="more-color"
+            onClick={() => setShowMore(!showMore)}
+            style={{ cursor: "pointer" }}
+          >
+            {showMore ? "Show Less" : "45+ more"}
+          </div>
+        </>
+      ) : (
+        <>
+          {filteredColors.length > 0 ? (
+            filteredColors.map((c, i) => <ColorRow key={i} {...c} />)
+          ) : (
+            <p className="text-muted">No Results Found</p>
+          )}
+        </>
+      )}
     </div>
   );
 }
