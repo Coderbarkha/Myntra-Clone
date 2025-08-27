@@ -151,7 +151,9 @@ function FilterColor() {
           )}
         </>
       )}
+    <hr style={{ borderColor: "#9d9d9eff", margin: "2" }} />
     </div>
+
   );
 }
 

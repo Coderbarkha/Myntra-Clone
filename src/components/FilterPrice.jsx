@@ -21,7 +21,7 @@ function FilterPrice() {
   return (
     <div className="filter-price">
       {/* Heading */}
-      <h5 className="price-heading">PRICE</h5>
+      <h4 className="fw-bold fs-6 text-dark m-0  price-heading">PRICE</h4>
 
       {/* Slider wrapper */}
       <div className="slider-container">

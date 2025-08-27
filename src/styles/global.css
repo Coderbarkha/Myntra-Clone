@@ -493,6 +493,16 @@ footer a:hover{
   color:rgb(252, 86, 113);
   font-weight:normal;
 }
+/* Filter Discount */
+.discount-heading{
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+.discount-range span{
+  font-size: 14px;
+}
 
 
 
