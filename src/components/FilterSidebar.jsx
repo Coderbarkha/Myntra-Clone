@@ -3,6 +3,7 @@ import '../styles/global.css';
 import FilterPrice from './FilterPrice';
 import FilterColor from './FilterColor';
 import FilterDiscount from './FilterDiscount';
+import FilterCategory from './FilterCategory';
 
 function FilterSidebar(){
     const [FilterSelected, setFilterSelected] = useState(false);
@@ -18,6 +19,7 @@ function FilterSidebar(){
             <FilterPrice/>
             <FilterColor/>
             <FilterDiscount/>
+            <FilterCategory/>
         </aside>
     )
 }
