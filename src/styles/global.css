@@ -386,7 +386,7 @@ footer a:hover{
 
 .price-heading {
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 13px;
   color: black;
 }
 
@@ -454,7 +454,7 @@ footer a:hover{
 }
 
 .price-label {
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 14px;
   color: black;
 }

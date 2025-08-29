@@ -21,9 +21,6 @@ function FilterDiscount(){
     
   </div>
 ))}
-
-
-            <hr style={{ borderColor: "#7c7c7c", margin: "4px 0" }} />
         </div>
     )
 }

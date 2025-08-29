@@ -15,11 +15,13 @@ function FilterSidebar(){
                 <h4 className='font-bold text-base'>FILTERS</h4>
                 <a href="#" className='text-sm clear-all'>CLEAR ALL</a>
             </div>
+            <hr style={{ borderColor: "#7c7c7c", margin: "4px 0" }} />
+            <br />
             {/* Different  Filters  */}
+            <FilterCategory/>   
             <FilterPrice/>
             <FilterColor/>
             <FilterDiscount/>
-            <FilterCategory/>
         </aside>
     )
 }
