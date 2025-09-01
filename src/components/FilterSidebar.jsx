@@ -4,7 +4,7 @@ import FilterPrice from './FilterPrice';
 import FilterColor from './FilterColor';
 import FilterDiscount from './FilterDiscount';
 import FilterCategory from './FilterCategory';
-
+import FilterBrand from './FilterBrand';
 function FilterSidebar(){
     const [FilterSelected, setFilterSelected] = useState(false);
 
@@ -18,7 +18,8 @@ function FilterSidebar(){
             <hr style={{ borderColor: "#7c7c7c", margin: "4px 0" }} />
             <br />
             {/* Different  Filters  */}
-            <FilterCategory/>   
+            <FilterCategory/> 
+            <FilterBrand/>
             <FilterPrice/>
             <FilterColor/>
             <FilterDiscount/>
