@@ -7,7 +7,9 @@ function FilterBrand() {
     { name: "7 alt by Pantaloons", count: 234 },
     { name: "7 Cavalry", count: 190 },
     { name: "3Colors", count: 131 },
+    { name: "7TH LEGION", count: 85 },
     { name: "4 TRIPLE O FIVE O BY MUFTI", count: 59 },
+    { name: "7OUNCE", count: 42 },
     { name: "3BROS", count: 34 },
     { name: "9FIGR", count: 22 },
     { name: "513", count: 21 },
@@ -113,7 +115,46 @@ function FilterBrand() {
     { name: "aLL", count: 2 },
     { name: "Arrow Blue Jean Co.", count: 1 },
     { name: "ALAWO", count: 1 },
-    { name: "Being Human", count: 9870 },
+    { name: "Being Human", count: 4030 },
+    { name: "Blackberrys", count: 3083 },
+    { name: "Basics", count: 2862 },
+    { name: "Banana Club", count: 1670 },
+    { name: "Bewakoof", count: 1612 },
+    { name: "BYFORD by Pantaloons", count: 1529 },
+    { name: "BRAWNY BATTLER", count: 1345 },
+    { name: "BEYOU FASHION", count: 1187 },
+    { name: "Blisstone", count: 1129 },
+    { name: "BAESD", count: 1074 },
+    { name: "Bushirt", count: 1025 },
+    { name: "boohooMAN", count: 971 },
+    { name: "BULLMER", count: 906 },
+    { name: "Beverly Hills Polo Club", count: 869 },
+    { name: "Be Crazy", count: 814 },
+    { name: "BENNY BROOKS", count: 774 },
+    { name: "Bene Kleed", count: 759 },
+    { name: "Blu MNKY", count: 695 },
+    { name: "bigbanana", count: 687 },
+    { name: "Beyoung", count: 628 },
+    { name: "berry blues", count: 609 },
+    { name: "BE POSITIVE", count: 521 },
+    { name: "British Club", count: 462 },
+    { name: "Besick", count: 407 },
+    { name: "BEAT LONDON by PEPE JEANS", count: 340 },
+    { name: "BDSQUARE", count: 322 },
+    { name: "Black Collection", count: 319 },
+    { name: "Big Hello - The Plus Life", count: 316 },
+    { name: "BS BLUE SQUAD", count: 313 },
+    { name: "Bonkers Corner", count: 303 },
+    { name: "BEN SHERMAN", count: 300 },
+    { name: "BRATMA", count: 266 },
+    { name: "Bruun & Stengade", count: 229 },
+    { name: "BROWN BROTHERS", count: 228 },
+    { name: "bollti", count: 218 },
+    { name: "BLACK BUCK", count: 193 },
+    { name: "Bewakoof Plus", count: 193 },
+    { name: "Bewakoof Heavy Duty", count: 184 },
+    { name: "BODYACTIVE", count: 176 },
+    { name: "Bloopers Store", count: 172 },
     { name: "Calvin Klein", count: 7654 },
     { name: "Diesel", count: 5432 },
     { name: "Fossil", count: 3210 },
@@ -132,7 +173,10 @@ function FilterBrand() {
     { name: "Zara", count: 8888 },
   ];
 
-  const alphabets = ["#", ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i))];
+  const alphabets = [
+    "#",
+    ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)),
+  ];
 
   const [showMore, setShowMore] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -145,7 +189,9 @@ function FilterBrand() {
   // Group brands by first letter
   const groupedBrands = {};
   filteredBrands.forEach((brand) => {
-    const firstChar = /^[0-9]/.test(brand.name[0]) ? "#" : brand.name[0].toUpperCase();
+    const firstChar = /^[0-9]/.test(brand.name[0])
+      ? "#"
+      : brand.name[0].toUpperCase();
     if (!groupedBrands[firstChar]) groupedBrands[firstChar] = [];
     groupedBrands[firstChar].push(brand);
   });
@@ -176,7 +222,11 @@ function FilterBrand() {
       <div className="d-flex flex-column">
         {brands.slice(0, 5).map((item) => (
           <div key={item.name} className="d-flex align-items-center mb-2">
-            <input type="checkbox" className="form-check-input me-2" id={`brand-${item.name}`} />
+            <input
+              type="checkbox"
+              className="form-check-input me-2"
+              id={`brand-${item.name}`}
+            />
             <label htmlFor={`brand-${item.name}`}>
               {item.name} ({item.count})
             </label>
@@ -220,7 +270,11 @@ function FilterBrand() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <X size={24} className="cursor-pointer" onClick={() => setShowMore(false)} />
+            <X
+              size={24}
+              className="cursor-pointer"
+              onClick={() => setShowMore(false)}
+            />
           </div>
 
           {/* Alphabet bar */}
@@ -233,7 +287,8 @@ function FilterBrand() {
                   style={{
                     cursor: "pointer",
                     fontWeight: "500",
-                    opacity: hoveredLetter && hoveredLetter !== letter ? 0.4 : 1,
+                    opacity:
+                      hoveredLetter && hoveredLetter !== letter ? 0.4 : 1,
                   }}
                   onMouseEnter={() => setHoveredLetter(letter)}
                   onMouseLeave={() => setHoveredLetter(null)}
@@ -259,7 +314,11 @@ function FilterBrand() {
               if (brandsForLetter.length === 0) return null;
 
               return (
-                <div key={letter} style={{ breakInside: "avoid" }} className="mb-3">
+                <div
+                  key={letter}
+                  style={{ breakInside: "avoid" }}
+                  className="mb-3"
+                >
                   <strong className="d-block mb-2">{letter}</strong>
                   {brandsForLetter.map((item) => {
                     const show = !hoveredLetter || hoveredLetter === letter;
