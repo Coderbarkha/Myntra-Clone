@@ -511,6 +511,31 @@ footer a:hover{
   border-radius: 50%;
   cursor: pointer;
 }
+/* Container basics */
+.filter-brand-root { font-family: 'Roboto', sans-serif; }
+
+/* Header search (inline) */
+.header-search {
+  width: 220px;
+  height: 34px;
+  font-size: 13px;
+  padding: 6px 8px;
+}
+
+/* round grey search circle */
+.search-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left:6px;
+  cursor:pointer;
+}
+
+
 
 
 

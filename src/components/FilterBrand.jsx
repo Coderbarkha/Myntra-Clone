@@ -1409,7 +1409,9 @@ function FilterBrand() {
     ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)),
   ];
 
-  const [showMore, setShowMore] = useState(false);
+
+  const [showMore, setShowMore] = useState(false); // brand panel
+  const [showSearch, setShowSearch] = useState(false); // small search bar toggle
   const [searchTerm, setSearchTerm] = useState("");
   const [hoveredLetter, setHoveredLetter] = useState(null);
 
@@ -1427,55 +1429,106 @@ function FilterBrand() {
     groupedBrands[firstChar].push(brand);
   });
 
-  return (
+
+    return (
     <div className="mb-3">
-      {/* Header with Search Icon */}
+      {/* Header with Search */}
       <div className="d-flex justify-content-between align-items-center mb-2">
-        <h4 className="fw-bold fs-6 text-dark m-0">BRAND</h4>
-        <div
-          style={{
-            width: "28px",
-            height: "28px",
-            borderRadius: "50%",
-            backgroundColor: "#f0f0f0",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-          }}
-          onClick={() => setShowMore(true)}
-        >
-          <Search size={16} color="gray" />
-        </div>
+        {!showSearch && (
+          <h4 className="fw-bold fs-6 text-dark m-0">BRAND</h4>
+        )}
+
+        {!showSearch ? (
+          <div
+            style={{
+              width: "28px",
+              height: "28px",
+              borderRadius: "50%",
+              backgroundColor: "#f0f0f0",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onClick={() => setShowSearch(true)}
+          >
+            <Search size={16} color="gray" />
+          </div>
+        ) : (
+          <div
+            className="d-flex align-items-center"
+            style={{
+              background: "#f5f5f6",
+              borderRadius: "20px",
+              padding: "4px 8px",
+              width: "100%",
+              maxWidth: "220px",
+              transition: "all 0.3s ease",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Search Brand"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                border: "none",
+                outline: "none",
+                background: "transparent",
+                fontSize: "13px",
+                flex: 1,
+              }}
+            />
+            <X
+              size={18}
+              style={{ cursor: "pointer", marginLeft: "6px" }}
+              onClick={() => {
+                setSearchTerm("");
+                setShowSearch(false);
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Top brands */}
       <div className="d-flex flex-column">
-        {brands.slice(0, 5).map((item) => (
-          <div key={item.name} className="d-flex align-items-center mb-2">
-            <input
-              type="checkbox"
-              className="form-check-input me-2"
-              id={`brand-${item.name}`}
-            />
-            <label htmlFor={`brand-${item.name}`}>
-              {item.name} ({item.count})
-            </label>
-          </div>
-        ))}
+        {(searchTerm ? filteredBrands.slice(0, 8) : brands.slice(0, 8)).map(
+          (item) => (
+            <div key={item.name} className="d-flex align-items-center mb-2">
+              <input
+                type="checkbox"
+                className="form-check-input me-2"
+                id={`brand-${item.name}`}
+              />
+              <label htmlFor={`brand-${item.name}`}>
+                {item.name} ({item.count})
+              </label>
+            </div>
+          )
+        )}
+
+        {/* No Brands Found */}
+        {searchTerm && filteredBrands.length === 0 && (
+          <span className="text-muted small">No brands found</span>
+        )}
 
         {/* +More */}
-        <span
-          className="mt-1"
-          style={{
-            color: "rgb(252, 86, 113)",
-            cursor: "pointer",
-            fontWeight: "400",
-          }}
-          onClick={() => setShowMore(true)}
-        >
-          +1375 more
-        </span>
+        {!searchTerm && (
+          <span
+            className="mt-1"
+            style={{
+              color: "rgb(252, 86, 113)",
+              cursor: "pointer",
+              fontWeight: "400",
+            }}
+            onClick={() => setShowMore(true)}
+          >
+            +1375 more
+          </span>
+        )}
       </div>
 
       {/* Side Panel */}
@@ -1530,7 +1583,7 @@ function FilterBrand() {
             </div>
           </div>
 
-          {/* Brand Grid (flowing multi-columns) */}
+          {/* Brand Grid */}
           <div
             className="p-3"
             style={{
