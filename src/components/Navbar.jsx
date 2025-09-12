@@ -1,6 +1,7 @@
 import React from "react";
 import myntralogo from "../assets/myntralogo.jfif";
 import "../styles/global.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -56,10 +57,10 @@ function Navbar() {
           <i className="bi bi-person "></i>
           <div>Profile</div>
         </div>
-        <div className="text-center me-4">
-          <i className="bi bi-heart "></i>
-          <div>Wishlist</div>
-        </div>
+        <Link to="/wishlist" className="text-center me-4 cursor-pointer">
+  <i className="bi bi-heart"></i>
+  <div>Wishlist</div>
+</Link>
         <div className="text-center">
           <i className="bi bi-bag "></i>
           <div>Bag</div>

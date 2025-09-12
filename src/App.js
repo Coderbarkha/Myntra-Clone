@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import Wishlist from "./pages/WishList";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
 
           {/* Single Product Details Page */}
           <Route path="/products/:id" element={<ProductDetails />} />
+
+          {/* Wishlist Page */}
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </div>
 
