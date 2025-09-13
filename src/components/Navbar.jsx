@@ -15,22 +15,34 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav fw-bold">
           <li className="nav-item  mx-2">
-            <a className="nav-link active" href="#">Men</a>
+            <a className="nav-link active" href="#">
+              Men
+            </a>
           </li>
           <li className="nav-item mx-2">
-            <a className="nav-link" href="#">Women</a>
+            <a className="nav-link" href="#">
+              Women
+            </a>
           </li>
           <li className="nav-item mx-2">
-            <a className="nav-link" href="#">Kids</a>
+            <a className="nav-link" href="#">
+              Kids
+            </a>
           </li>
           <li className="nav-item mx-2">
-            <a className="nav-link" href="#">Home</a>
+            <a className="nav-link" href="#">
+              Home
+            </a>
           </li>
           <li className="nav-item mx-2">
-            <a className="nav-link" href="#">Beauty</a>
+            <a className="nav-link" href="#">
+              Beauty
+            </a>
           </li>
           <li className="nav-item mx-2">
-            <a className="nav-link" href="#">Genz</a>
+            <a className="nav-link" href="#">
+              Genz
+            </a>
           </li>
           <li className="nav-item mx-2">
             <a className="nav-link" href="#">
@@ -43,11 +55,11 @@ function Navbar() {
       {/* Right Side: Search + Icons */}
       <div className="d-flex align-items-center">
         {/* Search Bar */}
-        <div className="search-bar me-4">
+        <div className="search-bar me-4 position-relative">
           <i className="bi bi-search search-icon"></i>
           <input
             type="text"
-            className="form-control"
+            className="form-control search-input"
             placeholder="Search for products, brands and more"
           />
         </div>
@@ -57,10 +69,14 @@ function Navbar() {
           <i className="bi bi-person "></i>
           <div>Profile</div>
         </div>
-        <Link to="/wishlist" className="text-center me-4 cursor-pointer">
-  <i className="bi bi-heart"></i>
-  <div>Wishlist</div>
-</Link>
+        <Link
+          to="/wishlist"
+          className="text-center me-4 cursor-pointer navbar-link"
+        >
+          <i className="bi bi-heart"></i>
+          <div>Wishlist</div>
+        </Link>
+
         <div className="text-center">
           <i className="bi bi-bag "></i>
           <div>Bag</div>

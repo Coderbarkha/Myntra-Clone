@@ -19,9 +19,6 @@ function App() {
           {/* Products Listing Page */}
           <Route path="/products" element={<Products />} />
 
-          {/* Single Product Details Page */}
-          <Route path="/products/:id" element={<ProductDetails />} />
-
           {/* Wishlist Page */}
           <Route path="/wishlist" element={<Wishlist />} />
         </Routes>

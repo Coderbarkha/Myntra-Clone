@@ -1,26 +1,26 @@
 // src/pages/Wishlist.jsx
 import React from "react";
-import { Heart } from "lucide-react"; // icon
+import { Heart, Plus } from "lucide-react"; // Plus icon
+import { Link } from "react-router-dom";      // for Continue Shopping navigation
+import wishlistimg from "../assets/wishlist.png";
+import "../styles/global.css";
 
 function Wishlist() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] text-center">
-      {/* Heart Icon */}
-      <Heart size={60} className="text-gray-400 mb-4" strokeWidth={1} />
-
+    <div className="wishlist-container">
       {/* Heading */}
-      <h2 className="text-2xl font-bold mb-2">YOUR WISHLIST IS EMPTY</h2>
-
-      {/* Subtext */}
-      <p className="text-gray-600 mb-6 max-w-md">
-        Add items that you like to your wishlist. Review them anytime and easily
-        move them to the bag.
+      <h4 className="wishlist-title">YOUR WISHLIST IS EMPTY</h4>
+      {/* subtext */}
+      <p className="wishlist-sub">
+        Add items that you like to your wishlist. Review<br></br> them anytime and easily move them to the bag.
       </p>
-
-      {/* Continue Shopping Button */}
-      <button className="px-6 py-2 border border-blue-500 text-blue-500 font-semibold uppercase rounded hover:bg-blue-50">
-        Continue Shopping
-      </button>
+     <div className="wishlist-img">
+      <img src={wishlistimg}/>
+     </div>
+      {/* Continue Shopping button (link to /products) */}
+      <Link to="/products" className="continue-link">
+        <button className="continue-btn">CONTINUE SHOPPING</button>
+      </Link>
     </div>
   );
 }

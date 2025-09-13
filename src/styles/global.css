@@ -504,13 +504,30 @@ footer a:hover{
 .discount-range span{
   font-size: 9px;
 }
-.search-icon{
-  width: 32px;
-  height: 32px;
-  background-color: #e5e5e5;
-  border-radius: 50%;
-  cursor: pointer;
+.search-bar {
+  position: relative;
+  width: 300px; /* apne hisaab se */
 }
+
+.search-input {
+  padding-left: 40px; /* icon ke liye jagah */
+  border-radius: 4px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+  background: none;  
+  border: none;      
+  width: auto;       
+  height: auto;
+}
+
 /* Container basics */
 .filter-brand-root { font-family: 'Roboto', sans-serif; }
 
@@ -534,6 +551,71 @@ footer a:hover{
   margin-left:6px;
   cursor:pointer;
 }
+/* Wishlist */
+.wishlist-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  height:90vh;
+  gap: 12px;
+  padding: 32px 16px;
+}
+.wishlist-title{
+  font-size: 22px;
+  font-weight:700;
+  margin: 0px;
+}
+.wishlist-sub{
+  color:#595f66;
+  max-width: 520px;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+}
+.wishlist-img {
+  display: flex;               /* center align karne ke liye */
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;           /* center horizontally */
+  border: 2px solid #f7f7f7;      /* rectangle border */
+  width: 250px;                /* container ka width */
+  height: 180px;               /* container ka height */
+}
+
+.wishlist-img img {
+  max-width: 90%;             /* image container ke andar fit ho */
+  max-height: 90%;
+  object-fit: cover;        /* image stretch na ho, maintain ratio ho */
+}
+/* Continue button */
+.continue-link { text-decoration: none; }
+.continue-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: 2px solid #1976d2;   /* blue outline */
+  color: #1976d2;
+  background: transparent;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.continue-btn:hover {
+  background: rgba(25,118,210,0.06);
+}
+.navbar-link {
+  text-decoration: none !important; /* forcefully underline hatao */
+  color: black;
+  display: inline-block;  /* safe rakhne ke liye */
+}
+
+.navbar-link:hover {
+  color: #ff3f6c; /* Myntra hover color */
+}
+
 
 
 

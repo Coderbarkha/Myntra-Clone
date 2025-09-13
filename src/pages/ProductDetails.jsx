@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
+import FilterSidebar from "../components/FilterSidebar";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -12,6 +13,9 @@ function ProductDetails() {
 
   return (
     <div className="p-6 flex gap-10">
+      <div className="w-1/4 border-r p-4">
+        <FilterSidebar />
+      </div>
       {/* Left side: images */}
       <div className="w-1/2">
         <img
