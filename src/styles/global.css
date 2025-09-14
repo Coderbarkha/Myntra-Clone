@@ -623,6 +623,11 @@ footer a:hover{
 .navbar-link:hover {
   color: #ff3f6c; /* Myntra hover color */
 }
+/* myntra banner */
+.myntra-banner{
+  display: block;
+  margin: 0px auto;
+}
 
 
 
