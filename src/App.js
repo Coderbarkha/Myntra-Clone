@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import Home from "./pages/Home";
 import Wishlist from "./pages/WishList";
 
 function App() {
@@ -13,14 +14,9 @@ function App() {
 
       <div className="min-h-screen">
         <Routes>
-          {/* Default route → Products page */}
-          <Route path="/" element={<Products />} />
-
-          {/* Products Listing Page */}
-          <Route path="/products" element={<Products />} />
-
-          {/* Wishlist Page */}
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </div>
 

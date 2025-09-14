@@ -34,6 +34,14 @@
 .navbar-nav .nav-link:hover {
   color: #ff3f6c;   
 }
+.new-badge {
+  color: #ff3f6c;   /* Myntra ka pink color */
+  font-size: 10px;  /* chhota size */
+  font-weight: bold;
+  position: relative;
+  top: -6px;        /* thoda upar shift */
+  margin-left: 2px; /* Studio aur NEW ke beech space */
+}
 
 
 /* Search Bar */

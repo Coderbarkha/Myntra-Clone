@@ -46,7 +46,7 @@ function Navbar() {
           </li>
           <li className="nav-item mx-2">
             <a className="nav-link" href="#">
-              Studio <span className="text-danger">NEW</span>
+              Studio <span className="new-badge">NEW</span>
             </a>
           </li>
         </ul>
