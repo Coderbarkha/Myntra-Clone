@@ -65,10 +65,42 @@ function Navbar() {
         </div>
 
         {/* Icons */}
-        <div className="text-center me-4">
-          <i className="bi bi-person "></i>
-          <div>Profile</div>
-        </div>
+       <div className="nav-item mx-2 profile-dropdown">
+  <div className="nav-link text-center">
+    <i className="bi bi-person"></i>
+    <div>Profile</div>
+  </div>
+
+  {/* Dropdown Box */}
+  <div className="profile-box">
+    <h6 className="fw-bold">Welcome</h6>
+    <p className="small text-muted">To access account and manage orders</p>
+    <button className="login-btn"><a href="Login.jsx">Login / Signup</a></button>
+    <hr />
+
+    <ul className="list-unstyled">
+      <li>Orders</li>
+      <li>Wishlist</li>
+      <li>Gift Cards</li>
+      <li>Contact Us</li>
+      <li>
+        Myntra Insider <span className="new-label">NEW</span>
+      </li>
+    </ul>
+
+    <hr />
+
+    <ul className="list-unstyled">
+      <li>Myntra Credit</li>
+      <li>Coupons</li>
+      <li>Saved Cards</li>
+      <li>Saved VPA</li>
+      <li>Saved Addresses</li>
+    </ul>
+  </div>
+</div>
+
+
         <Link
           to="/wishlist"
           className="text-center me-4 cursor-pointer navbar-link"
