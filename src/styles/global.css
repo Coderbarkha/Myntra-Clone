@@ -711,6 +711,131 @@ footer a:hover{
 .profile-box li:hover {
   color: black;
 }
+/* login.css */
+/* Container */
+.login-container {
+  height: 500px;
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: left;
+  border: 1px solid lightgray;
+  padding: 20px;
+  overflow-x: hidden;
+ font-family: "Assistant", Arial, Helvetica, sans-serif;
+}
+
+/* Image */
+.login-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.login-heading {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* Input with star */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+.mobile-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.required-star {
+  color: red;
+  position: absolute;
+  margin-left: 2px;
+}
+
+/* Terms text */
+.terms-text {
+  display: block;
+  font-size: 13px;
+  color: #3f3f3f;
+  font-weight:bolder;
+  margin-bottom: 20px;
+}
+.terms-text input {
+  margin-right: 8px;
+}
+.pink-link a {
+  color: #ff3f6c;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Continue button */
+.continue-btn {
+  width: 100%;
+  background: grey;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.continue-btn:hover {
+  background: #555;
+}
+
+/* Help text */
+.help-text {
+  font-size: 12px;
+  text-align: left; /* instead of center */
+  color: #535766;   /* Myntra's grey */
+  margin-top: -10px;
+}
+
+.help-text .pink-link {
+  font-size: 12px;
+}
+/* terms of use */
+/* Language selector */
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 680px;
+}
+
+.language-selector select {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.terms-container {
+  max-width: 800px;     /* content ki width control */
+  margin: 40px auto;    /* center horizontally with top margin */
+  padding: 20px;
+  background: #fff;     /* white background */
+  border: 1px solid white; /* grey border */
+  border-radius: 6px;
+}
+
+.terms-container p {
+  margin: 15px 0;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #3f3f3f;
+}
+.terms-heading {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
 
 
 

@@ -3,7 +3,7 @@ import myntralogo from "../assets/myntralogo.jfif";
 import "../styles/global.css";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({hideProfile}) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light px-3">
       {/* Logo */}
@@ -65,7 +65,8 @@ function Navbar() {
         </div>
 
         {/* Icons */}
-       <div className="nav-item mx-2 profile-dropdown">
+    {!hideProfile &&(
+    <div className="nav-item mx-2 profile-dropdown">
   <div className="nav-link text-center">
     <i className="bi bi-person"></i>
     <div>Profile</div>
@@ -75,7 +76,10 @@ function Navbar() {
   <div className="profile-box">
     <h6 className="fw-bold">Welcome</h6>
     <p className="small text-muted">To access account and manage orders</p>
-    <button className="login-btn"><a href="Login.jsx">Login / Signup</a></button>
+   <Link to="/login">
+  <button className="login-btn">Login / Signup</button>
+</Link>
+
     <hr />
 
     <ul className="list-unstyled">
@@ -99,7 +103,7 @@ function Navbar() {
     </ul>
   </div>
 </div>
-
+)}
 
         <Link
           to="/wishlist"
