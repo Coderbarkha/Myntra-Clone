@@ -675,12 +675,13 @@ footer a:hover{
 
 /* Login button */
 .login-btn {
-  width: 100%;
-  padding: 8px;
+  width: 50%;
+  padding: 5px;
   border: 1px solid lightgrey;
   background: #fff;
   color: #ff3f6c;
   font-weight: 600;
+  font-size: 15px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -815,8 +816,8 @@ footer a:hover{
   cursor: pointer;
 }
 .terms-container {
-  max-width: 800px;     /* content ki width control */
-  margin: 40px auto;    /* center horizontally with top margin */
+  width: 900px;     /* content ki width control */
+  margin: 20px auto;    /* center horizontally with top margin */
   padding: 20px;
   background: #fff;     /* white background */
   border: 1px solid white; /* grey border */
@@ -826,7 +827,7 @@ footer a:hover{
 .terms-container p {
   margin: 15px 0;
   line-height: 1.6;
-  font-size: 14px;
+  font-size: 13px;
   color: #3f3f3f;
 }
 .terms-heading {
@@ -834,6 +835,27 @@ footer a:hover{
   font-weight: bold;
   margin-bottom: 20px;
 }
+.terms-container h3 {
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #282c3f;
+}
+
+.terms-container p {
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.terms-container ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.terms-container ul li {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
 
 
 
