@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import Wishlist from "./pages/WishList";
 import Login from "./pages/Login";
 import TermsOfUse from "./pages/TermsOfUse";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GetHelp from "./pages/GetHelp";
+
 
 function App() {
   return (
@@ -18,7 +21,9 @@ function App() {
           <Route path="/products" element={<><Navbar /><Products /> <Footer /></>} />
           <Route path="/wishlist" element={<><Navbar /><Wishlist /> <Footer /></>} />
           <Route path="/login" element={<><Navbar hideProfile={true} /><Login /></>} />
-          <Route path="/terms" element={<><Navbar hideProfile={true}/><TermsOfUse /></>} />
+          <Route path="/terms" element={<><Navbar/><TermsOfUse /><Footer/></>} />
+          <Route path="/privacy" element={<><Navbar/><PrivacyPolicy /><Footer/></>} />
+          <Route path="/help" element={<><Navbar/><GetHelp /><Footer/></>} />
         </Routes>
       </div>
     </Router>

@@ -805,7 +805,7 @@ footer a:hover{
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  margin-left: 680px;
+  margin-left: 700px;
 }
 
 .language-selector select {
@@ -816,8 +816,8 @@ footer a:hover{
   cursor: pointer;
 }
 .terms-container {
-  width: 900px;     /* content ki width control */
-  margin: 20px auto;    /* center horizontally with top margin */
+  width: 1000px;     /* content ki width control */
+  margin: 18px auto;    /* center horizontally with top margin */
   padding: 20px;
   background: #fff;     /* white background */
   border: 1px solid white; /* grey border */
@@ -825,10 +825,10 @@ footer a:hover{
 }
 
 .terms-container p {
-  margin: 15px 0;
+  margin: 12px 0;
   line-height: 1.6;
   font-size: 13px;
-  color: #3f3f3f;
+  color:lightslategray;
 }
 .terms-heading {
   text-align: center;
@@ -839,14 +839,8 @@ footer a:hover{
   margin-top: 25px;
   font-weight: bold;
   font-size: 15px;
-  color: #282c3f;
+  color: black;
 }
-
-.terms-container p {
-  margin: 12px 0;
-  font-size: 13px;
-}
-
 .terms-container ul {
   margin-left: 20px;
   margin-bottom: 20px;
@@ -854,8 +848,188 @@ footer a:hover{
 .terms-container ul li {
   margin-bottom: 10px;
   font-size: 13px;
+  color: lightslategray;
+}
+/* Privacy Policy */
+.privacy-container{
+  width: 1000px;     /* content ki width control */
+  margin: 18px auto;    /* center horizontally with top margin */
+  padding: 20px;
+  background: #fff;     /* white background */
+  border: 1px solid white; /* grey border */
+  border-radius: 6px;
+}
+.privacy-heading{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.privacy-container p{
+   margin: 12px 0;
+  line-height: 1.6;
+  font-size: 13px;
+  color: lightslategray;
+}
+.privacy-container h3{
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
+.privacy-container ul{
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.privacy-container ul li{
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: lightslategray;
+}
+/* get help */
+.gethelp-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
+.gethelp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-text h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: gray;
+}
+
+.track-box {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin: 0 20px;
+  flex: 1;
+}
+
+.lock-icon {
+  margin-right: 10px;
+  color: #555;
+}
+
+.track-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.track-sub {
+  font-size: 12px;
+  color: gray;
+}
+
+.orders-btn {
+  border: 2px solid green;
+  background: white;
+  color: green;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.orders-btn:hover {
+  background: #d9fcd9;
+}
+
+.query-tabs {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  font-size: 14px;
+  color: slategray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab.active {
+  color: green;
+  font-weight: bold;
+}
+
+.faq {
+  margin-top: 10px;
+  font-size: 14px;
+  color: slategray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.content-box {
+  margin-top: 20px;
+  border: 2px solid rgba(200, 200, 200, 0.4);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.content-text {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.login-btn {
+  border: 2px solid green;
+  background: white;
+  color: green;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background: #d9fcd9;
+}
+
+.topics h3 {
+  margin-bottom: 15px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.topic-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.topic-btn:hover {
+  background: #e6e6e6;
+}
 
 
 

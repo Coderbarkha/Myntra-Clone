@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import loginimg from "../assets/login-img.PNG";
 import "../styles/global.css"; // we’ll add CSS separately
 
 function Login() {
+  const [isChecked,setIsChecked]=useState(false);
   return (
     <div className="login-container">
       {/* Top Image */}
@@ -24,7 +25,7 @@ function Login() {
 
       {/* Checkbox + text */}
       <label className="terms-text">
-        <input type="checkbox" /> By continuing I agree to the{" "}
+        <input type="checkbox" checked={isChecked} /> By continuing I agree to the{" "}
         <span className="pink-link">
           <a href="/terms">Terms Of Use</a>
         </span>{" "}
