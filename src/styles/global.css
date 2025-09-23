@@ -885,173 +885,273 @@ footer a:hover{
   font-size: 13px;
   color: lightslategray;
 }
+/* ===== GetHelp styles ===== */
 .gethelp-container {
   max-width: 1100px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  margin: 32px auto;
+  padding: 18px;
+  font-family: "Assistant", Arial, sans-serif;
 }
 
 .gethelp-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .left-text h2 {
   font-size: 20px;
-  margin-bottom: 5px;
+  margin: 0 0 6px 0;
 }
 
 .sub-text {
+  color: #6e6e6e;
+  margin: 0;
   font-size: 14px;
-  color: gray;
 }
 
 .track-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border: 1px solid gray;
-  padding: 13px 20px;
-  width: 790px;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 14px 20px;
   border-radius: 6px;
-  margin-left: 20px;
+  width: 780px; /* wider */
+  margin-left: 80px; /* moved more right */
 }
 
 .lock-icon {
-  margin-right: 10px;
-  color: #555;
+  color: #666;
 }
 
 .track-title {
-  font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
+  margin: 0;
+  font-size: 15px;
 }
 
 .track-sub {
-  font-size: 12px;
-  color: gray;
+  margin: 0;
+  color: #777;
+  font-size: 13px;
 }
 
 .orders-btn {
-  border: 2px solid green;
-  background: white;
-  color: green;
-  padding: 6px 16px;
+  margin-left: auto;
+  border: 2px solid rgb(11, 245, 215);
+  color: rgb(11, 245, 215);
+  background: #fff;
+  padding: 7px 14px;
   border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .orders-btn:hover {
-  background: #d9fcd9;
+  background: #eaffea;
 }
 
-/* BODY SECTION */
+/* body: left tabs, right content */
 .gethelp-body {
   display: flex;
-  margin-top: 20px;
-  gap: 40px;
+  gap: 22px;
+  margin-top: 18px;
+  align-items: flex-start;
 }
 
-/* LEFT SIDE TABS */
-.query-tabs {
+.query-tabs-vertical {
+  width: 260px;
   display: flex;
   flex-direction: column;
-  gap: 25px; /* zyada space */
-  flex: 0.3;
-  padding-right: 20px;
-  border-right: 2px solid #ddd; /* vertical line */
+  gap: 12px;
+}
+
+.query-heading {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .tab {
-  font-size: 15px;
-  color: slategray;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  font-size: 13px;
+  color: #6b7280;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .tab.active {
-  color: green;
-  font-weight: bold;
+  color: rgb(11, 245, 215);
+  font-weight: 700;
 }
 
-.faq {
-  margin-top: 20px;
+.faq-link {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 8px;
 }
 
-/* RIGHT SIDE CONTENT */
-.gethelp-content {
+.content-area {
   flex: 1;
 }
 
-.content-box {
-  border: 2px solid #ccc;
-  padding: 30px;
-  border-radius: 8px;
-  background: #fafafa;
+/* ===== Boxes for Order / Recent ===== */
+
+/* Order box with blur */
+.blurred-box {
+  border: 10px solid #ccc;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  padding: 28px;
+  text-align: center;
 }
 
-.content-text {
-  font-size: 14px;
-  line-height: 1.5;
+/* Recent issues box (simple white, no grey box) */
+.recent-box {
+  padding: 26px;
+  border-radius: 8px;
+  background: #fff;
+  border: none;
   text-align: center;
-  margin-bottom: 20px;
+}
+
+.login-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
 }
 
 .gethelplogin-btn {
-  border: 2px solid green;
-  background: white;
-  color: green;
-  font-size: 16px;
-  padding: 12px 0;
+  border: 2px solid rgb(11, 245, 215);
+  color: rgb(11, 245, 215);
+  background: #fff;
+  padding: 10px 20px;
   border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%; /* full width */
+  font-weight: 700;
 }
 
 .gethelplogin-btn:hover {
-  background: #d9fcd9;
+  background: #eaffea;
 }
 
-/* Recent box */
-.recent-box {
-  text-align: center;
-  margin-top: 20px;
+/* ===== Browse Topics ===== */
+.browse-topics {
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
 }
 
-/* NON-ORDER TOPICS */
-.topics-section h3 {
-  margin-bottom: 20px;
+.browse-heading {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
 .topics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 18px;
 }
 
+/* Topic buttons (icon left, text right, white bg) */
 .topic-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #f9f9f9;
+  justify-content: flex-start;
+  padding: 28px 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
   cursor: pointer;
-  font-weight: bold;
-  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 13px;
+  font-weight: 500;
+  gap: 12px;
 }
 
-.topic-btn:hover {
-  background: #e6e6e6;
+.topic-btn span {
+  color: #333;
+  white-space: nowrap;
 }
+
+/* Small circle icons inside topic buttons */
+.icon-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* Icon background colors */
+.light-red {
+  background: #f28b82;
+}
+
+.light-grey {
+  background: #9e9e9e;
+}
+
+.brown {
+  background: #8d6e63;
+}
+
+.beige {
+  background: #d7ccc8;
+}
+
+.light-blue {
+  background: #64b5f6;
+}
+
+.light-pink {
+  background: #f8bbd0;
+}
+/* ===== FAQs Section ===== */
+.faqs-section {
+  margin-top: 5px;
+  padding: 21px;
+  background: #fff;
+}
+
+
+.faq-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item:hover {
+  color: rgb(11, 245, 215);
+}
+
+.faq-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+
+
+
 
 
 
