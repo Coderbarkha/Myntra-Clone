@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   FaLock,
   FaAngleRight,
+  FaAngleDown,
   FaUser,
   FaUndo,
   FaGift,
@@ -15,6 +16,75 @@ import "../styles/global.css";
 export default function GetHelp() {
   const [activeTab, setActiveTab] = useState("order");
   const [activeTopic, setActiveTopic] = useState(null);
+  const [openFaq, setOpenFaq] = useState(null);
+
+
+  const topics = [
+    { id: "account", label: "Account", icon: <FaUser />, color: "light-red",
+      desc: "For account related issues refer to the below questions to get the complete information and if you're still unable to access your account? Click on the Contact Us option to talk to our customer care." },
+    { id: "return", label: "Return & Exchange", icon: <FaUndo />, color: "light-grey",
+      desc: "For return & exchange related issues kindly check the questions below. If not solved, contact customer support." },
+    { id: "insider", label: "Myntra Credit & Insider", icon: <FaGift />, color: "brown",
+      desc: "Here are some FAQs related to Myntra Credit and Insider program benefits." },
+    { id: "offers", label: "Offers", icon: <FaPercent />, color: "beige",
+      desc: "For queries regarding offers, discounts and coupon usage kindly check below." },
+    { id: "payments", label: "Payments", icon: <FaMoneyBill />, color: "light-blue",
+      desc: "These questions resolve most of the issues regarding payments and transactions." },
+    { id: "cancel", label: "Cancellation & Charges", icon: <FaTimes />, color: "light-pink",
+      desc: "Cancellation policies and related charges are answered in the FAQs below." },
+  ];
+
+  // 6 FAQs for each topic
+  const topicFaqs = {
+    account: [
+      "How do I login to my Myntra account?",
+      "I am not able to login to my Myntra account.",
+      "Why am I not getting an OTP?",
+      "I am not getting the Forgot Password link.",
+      "How do I change my registered email?",
+      "How can I delete my account permanently?"
+    ],
+    return: [
+      "How do I return an item?",
+      "What items are not eligible for return?",
+      "How many days do I have to return a product?",
+      "How do I track my return request?",
+      "When will I get my refund after return?",
+      "What if my return is rejected?"
+    ],
+    insider: [
+      "What is Myntra Insider?",
+      "How do I earn Insider points?",
+      "What benefits do Insiders get?",
+      "How can I redeem Insider rewards?",
+      "Do Insider points expire?",
+      "Can I transfer Insider points?"
+    ],
+    offers: [
+      "How can I apply a coupon code?",
+      "Why is my offer not working?",
+      "Can I combine two offers?",
+      "Where do I check available offers?",
+      "Do offers apply on all products?",
+      "Why was my discount removed at checkout?"
+    ],
+    payments: [
+      "What payment methods are available?",
+      "Why did my payment fail?",
+      "How do I add a new card?",
+      "Can I pay via UPI?",
+      "When will I get my refund?",
+      "Is Cash on Delivery available?"
+    ],
+    cancel: [
+      "How do I cancel an order?",
+      "Can I cancel after it is shipped?",
+      "Will I be charged for cancellation?",
+      "How do I check cancellation status?",
+      "When will my money be refunded?",
+      "Why was my order auto-cancelled?"
+    ],
+  };
 
   return (
     <div className="gethelp-container">
@@ -40,19 +110,19 @@ export default function GetHelp() {
           <h4 className="query-heading">Select Query Type</h4>
           <button
             className={`tab ${activeTab === "order" ? "active" : ""}`}
-            onClick={() => setActiveTab("order")}
+            onClick={() => { setActiveTab("order"); setActiveTopic(null); }}
           >
             Order Related Queries <FaAngleRight />
           </button>
           <button
             className={`tab ${activeTab === "nonOrder" ? "active" : ""}`}
-            onClick={() => setActiveTab("nonOrder")}
+            onClick={() => { setActiveTab("nonOrder"); setActiveTopic(null); }}
           >
             Non-Order Related Issues <FaAngleRight />
           </button>
           <button
             className={`tab ${activeTab === "recent" ? "active" : ""}`}
-            onClick={() => setActiveTab("recent")}
+            onClick={() => { setActiveTab("recent"); setActiveTopic(null); }}
           >
             Recent Issues <FaAngleRight />
           </button>
@@ -63,116 +133,121 @@ export default function GetHelp() {
 
         {/* right side content */}
         <div className="content-area">
-          {/* Order Related Queries */}
           {activeTab === "order" && (
             <div className="content-box blurred-box">
               <p className="content-text">
-                Please <strong>log in</strong> if you have queries related to
-                purchases.
+                Please <strong>log in</strong> if you have queries related to purchases.
               </p>
               <button className="gethelplogin-btn">LOG IN</button>
             </div>
           )}
 
-          {/* Recent Issues */}
           {activeTab === "recent" && (
             <div className="recent-box">
               <p className="content-text">
-                Please <strong>log in</strong> if you have queries related to
-                purchases.
+                Please <strong>log in</strong> if you have queries related to purchases.
               </p>
               <button className="gethelplogin-btn">LOG IN</button>
             </div>
           )}
 
-          {/* Non-Order Related */}
+          {/* Non-Order */}
           {activeTab === "nonOrder" && (
             <div>
-              <div className="browse-topics">
-                <h4 className="browse-heading">Browse Topics</h4>
-
-                <div className="topics-grid">
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("account")}
-                  >
-                    <div className="icon-circle light-red">
-                      <FaUser />
+              {!activeTopic && (
+                <>
+                  <div className="browse-topics">
+                    <h4 className="browse-heading">Browse Topics</h4>
+                    <div className="topics-grid">
+                      {topics.map((t) => (
+                        <div
+                          key={t.id}
+                          className="topic-btn"
+                          onClick={() => setActiveTopic(t.id)}
+                        >
+                          <div className={`icon-circle ${t.color}`}>{t.icon}</div>
+                          <span>{t.label}</span>
+                        </div>
+                      ))}
                     </div>
-                    <span>Account</span>
                   </div>
 
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("return")}
-                  >
-                    <div className="icon-circle light-grey">
-                      <FaUndo />
-                    </div>
-                    <span>Return & Exchange</span>
+                  {/* show only first 4 FAQs */}
+                  <div className="faqs-section">
+                    {Object.values(topicFaqs)
+                      .flat()
+                      .slice(0, 4)
+                      .map((q, i) => (
+                        <div
+                          key={i}
+                          className="faq-item"
+                          onClick={() => setActiveTopic(topics[i % topics.length].id)}
+                        >
+                          <span>{q}</span>
+                          <FaAngleRight className="faq-icon" />
+                        </div>
+                      ))}
+                  </div>
+                </>
+              )}
+
+              {activeTopic && (
+                <>
+                  <div className="topics-row">
+                    {topics.map((t) => (
+                      <div
+                        key={t.id}
+                        className={`row-topic-btn ${activeTopic === t.id ? "active" : ""}`}
+                        onClick={() => setActiveTopic(t.id)}
+                      >
+                        <div className={`row-icon-circle ${t.color}`}>{t.icon}</div>
+                        <span>{t.label}</span>
+                        {activeTopic === t.id && <div className="active-line"></div>}
+                      </div>
+                    ))}
                   </div>
 
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("insider")}
-                  >
-                    <div className="icon-circle brown">
-                      <FaGift />
-                    </div>
-                    <span>Myntra Credit & Insider</span>
-                  </div>
+                 {/* details box */}
+<div className="topic-details-box">
+  <div className="details-header">
+    <div className={`details-icon ${topics.find(t=>t.id===activeTopic).color}`}>
+      {topics.find(t=>t.id===activeTopic).icon}
+    </div>
+    <div>
+      <h4>{topics.find(t=>t.id===activeTopic).label}</h4>
+      <p>{topics.find(t=>t.id===activeTopic).desc}</p>
+    </div>
+  </div>
 
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("offers")}
-                  >
-                    <div className="icon-circle beige">
-                      <FaPercent />
-                    </div>
-                    <span>Offers</span>
-                  </div>
+  {/* FAQ list with expand/collapse */}
+  <div className="details-faqs">
+    {topicFaqs[activeTopic].map((q, i) => (
+      <div 
+        key={i} 
+        className="faq-item details-faq" 
+        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+      >
+        <div className="faq-question">
+          <span>{q}</span>
+          {openFaq === i ? <FaAngleDown className="faq-icon"/> : <FaAngleRight className="faq-icon"/>}
+        </div>
 
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("payments")}
-                  >
-                    <div className="icon-circle light-blue">
-                      <FaMoneyBill />
-                    </div>
-                    <span>Payments</span>
-                  </div>
+        {/* Answer show only when open */}
+        {openFaq === i && (
+          <div className="faq-answer">
+            <p>
+              This is a placeholder answer for: <strong>{q}</strong>.  
+              (Later tum apna actual answer add kar sakte ho.)
+            </p>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
 
-                  <div
-                    className="topic-btn"
-                    onClick={() => setActiveTopic("cancel")}
-                  >
-                    <div className="icon-circle light-pink">
-                      <FaTimes />
-                    </div>
-                    <span>Cancellation & Charges</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQs only for Non-Order tab */}
-              <div className="faqs-section">
-                <div className="faq-item">
-                  <span>How do I login to my Myntra account?</span>
-                  <FaAngleRight className="faq-icon" />
-                </div>
-                <div className="faq-item">
-                  <span>I am not able to login to my Myntra account.</span>
-                  <FaAngleRight className="faq-icon" />
-                </div>
-                <div className="faq-item">
-                  <span>Why am I not getting an OTP?</span>
-                  <FaAngleRight className="faq-icon" />
-                </div>
-                <div className="faq-item">
-                  <span>I am not getting the Forgot Password link.</span>
-                  <FaAngleRight className="faq-icon" />
-                </div>
-              </div>
+                </>
+              )}
             </div>
           )}
         </div>

@@ -918,8 +918,8 @@ footer a:hover{
   border: 1px solid #ddd;
   padding: 14px 20px;
   border-radius: 6px;
-  width: 780px; /* wider */
-  margin-left: 80px; /* moved more right */
+  width: 780px;
+  margin-left: 80px;
 }
 
 .lock-icon {
@@ -952,7 +952,7 @@ footer a:hover{
   background: #eaffea;
 }
 
-/* body: left tabs, right content */
+/* body layout */
 .gethelp-body {
   display: flex;
   gap: 22px;
@@ -998,9 +998,7 @@ footer a:hover{
   flex: 1;
 }
 
-/* ===== Boxes for Order / Recent ===== */
-
-/* Order box with blur */
+/* ===== Boxes ===== */
 .blurred-box {
   border: 10px solid #ccc;
   background: rgba(255, 255, 255, 0.7);
@@ -1009,21 +1007,11 @@ footer a:hover{
   text-align: center;
 }
 
-/* Recent issues box (simple white, no grey box) */
 .recent-box {
   padding: 26px;
   border-radius: 8px;
   background: #fff;
   border: none;
-  text-align: center;
-}
-
-.login-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
   text-align: center;
 }
 
@@ -1059,7 +1047,6 @@ footer a:hover{
   gap: 18px;
 }
 
-/* Topic buttons (icon left, text right, white bg) */
 .topic-btn {
   display: flex;
   align-items: center;
@@ -1080,7 +1067,6 @@ footer a:hover{
   white-space: nowrap;
 }
 
-/* Small circle icons inside topic buttons */
 .icon-circle {
   width: 34px;
   height: 34px;
@@ -1092,37 +1078,20 @@ footer a:hover{
   color: #fff;
 }
 
-/* Icon background colors */
-.light-red {
-  background: #f28b82;
-}
+/* Colors */
+.light-red { background: #f28b82; }
+.light-grey { background: #9e9e9e; }
+.brown { background: #8d6e63; }
+.beige { background: #d7ccc8; color: #333; }
+.light-blue { background: #64b5f6; }
+.light-pink { background: #f8bbd0; }
 
-.light-grey {
-  background: #9e9e9e;
-}
-
-.brown {
-  background: #8d6e63;
-}
-
-.beige {
-  background: #d7ccc8;
-}
-
-.light-blue {
-  background: #64b5f6;
-}
-
-.light-pink {
-  background: #f8bbd0;
-}
-/* ===== FAQs Section ===== */
+/* ===== FAQs ===== */
 .faqs-section {
   margin-top: 5px;
   padding: 21px;
   background: #fff;
 }
-
 
 .faq-item {
   display: flex;
@@ -1148,6 +1117,109 @@ footer a:hover{
   font-size: 14px;
   color: #666;
 }
+
+/* ===== Existing styles unchanged above ===== */
+
+/* Row layout */
+.topics-row {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.row-topic-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+}
+
+.row-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.row-topic-btn .active-line {
+  width: 100%;
+  height: 3px;
+  background: pink;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* Details box */
+.topic-details-box {
+  margin-top: 18px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.details-header {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.details-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+}
+
+.topic-details-box h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.topic-details-box p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Inside details: FAQs */
+.details-faqs {
+  max-height: 180px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.details-faqs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.details-faq {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 6px 0;
+  color: #333;
+}
+
+
+
 
 
 
