@@ -1200,15 +1200,15 @@ footer a:hover{
   color: #555;
 }
 
-/* Inside details: FAQs */
+/* ===== FAQ Adjustments ===== */
 .details-faqs {
-  max-height: 180px;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-}
-
-.details-faqs::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  max-height: none; /* allow all to expand */
+  overflow: visible;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #ddd; /* added border */
+  border-radius: 8px;
+  background: #fff;
 }
 
 .details-faq {
@@ -1216,7 +1216,45 @@ footer a:hover{
   font-weight: 600;
   margin: 6px 0;
   color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee; /* optional separation */
 }
+
+.details-faq:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.faq-icon {
+  font-size: 16px;
+  color: #000; /* normal black icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-answer {
+  margin-top: 6px;
+  padding-left: 20px;
+  color: #444;
+  font-size: 13px;
+  display: none; /* initially hidden */
+}
+
+/* Remove hover color effect */
+.details-faq:hover {
+  color: #333;
+}
+
 
 
 

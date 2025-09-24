@@ -4,6 +4,7 @@ import {
   FaLock,
   FaAngleRight,
   FaAngleDown,
+  FaAngleUp,
   FaUser,
   FaUndo,
   FaGift,
@@ -11,13 +12,12 @@ import {
   FaMoneyBill,
   FaTimes,
 } from "react-icons/fa";
-import "../styles/global.css";
+import "./GetHelp.css";
 
 export default function GetHelp() {
   const [activeTab, setActiveTab] = useState("order");
   const [activeTopic, setActiveTopic] = useState(null);
-  const [openFaq, setOpenFaq] = useState(null);
-
+  const [openFaqs, setOpenFaqs] = useState({}); // store multiple open FAQs
 
   const topics = [
     { id: "account", label: "Account", icon: <FaUser />, color: "light-red",
@@ -34,7 +34,6 @@ export default function GetHelp() {
       desc: "Cancellation policies and related charges are answered in the FAQs below." },
   ];
 
-  // 6 FAQs for each topic
   const topicFaqs = {
     account: [
       "How do I login to my Myntra account?",
@@ -86,6 +85,22 @@ export default function GetHelp() {
     ],
   };
 
+  const toggleFaq = (topic, index) => {
+    const key = `${topic}-${index}`;
+    setOpenFaqs(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const getAnswer = (q) => {
+    // Apni taraf se answers
+    if(q.includes("login")) return "To login, use your registered email or phone number and password. If you forgot password, click 'Forgot Password' to reset it.";
+    if(q.includes("return")) return "You can return items within 30 days of delivery. Make sure they are unused and in original packaging.";
+    if(q.includes("Myntra Insider")) return "Myntra Insider is a loyalty program. Earn points by shopping and redeem for rewards.";
+    if(q.includes("coupon")) return "Apply the coupon code at checkout. Ensure it’s valid and applicable to the items.";
+    if(q.includes("payment")) return "Ensure your card details are correct and your bank approves the transaction.";
+    if(q.includes("cancel")) return "You can cancel before shipping. Charges may apply depending on the order status.";
+    return "This is a general answer for your query.";
+  };
+
   return (
     <div className="gethelp-container">
       <div className="gethelp-header">
@@ -105,25 +120,15 @@ export default function GetHelp() {
       </div>
 
       <div className="gethelp-body">
-        {/* left tabs vertical */}
         <div className="query-tabs-vertical">
           <h4 className="query-heading">Select Query Type</h4>
-          <button
-            className={`tab ${activeTab === "order" ? "active" : ""}`}
-            onClick={() => { setActiveTab("order"); setActiveTopic(null); }}
-          >
+          <button className={`tab ${activeTab === "order" ? "active" : ""}`} onClick={() => { setActiveTab("order"); setActiveTopic(null); }}>
             Order Related Queries <FaAngleRight />
           </button>
-          <button
-            className={`tab ${activeTab === "nonOrder" ? "active" : ""}`}
-            onClick={() => { setActiveTab("nonOrder"); setActiveTopic(null); }}
-          >
+          <button className={`tab ${activeTab === "nonOrder" ? "active" : ""}`} onClick={() => { setActiveTab("nonOrder"); setActiveTopic(null); }}>
             Non-Order Related Issues <FaAngleRight />
           </button>
-          <button
-            className={`tab ${activeTab === "recent" ? "active" : ""}`}
-            onClick={() => { setActiveTab("recent"); setActiveTopic(null); }}
-          >
+          <button className={`tab ${activeTab === "recent" ? "active" : ""}`} onClick={() => { setActiveTab("recent"); setActiveTopic(null); }}>
             Recent Issues <FaAngleRight />
           </button>
           <div className="faq-link">
@@ -131,7 +136,6 @@ export default function GetHelp() {
           </div>
         </div>
 
-        {/* right side content */}
         <div className="content-area">
           {activeTab === "order" && (
             <div className="content-box blurred-box">
@@ -151,7 +155,6 @@ export default function GetHelp() {
             </div>
           )}
 
-          {/* Non-Order */}
           {activeTab === "nonOrder" && (
             <div>
               {!activeTopic && (
@@ -160,11 +163,7 @@ export default function GetHelp() {
                     <h4 className="browse-heading">Browse Topics</h4>
                     <div className="topics-grid">
                       {topics.map((t) => (
-                        <div
-                          key={t.id}
-                          className="topic-btn"
-                          onClick={() => setActiveTopic(t.id)}
-                        >
+                        <div key={t.id} className="topic-btn" onClick={() => setActiveTopic(t.id)}>
                           <div className={`icon-circle ${t.color}`}>{t.icon}</div>
                           <span>{t.label}</span>
                         </div>
@@ -172,21 +171,21 @@ export default function GetHelp() {
                     </div>
                   </div>
 
-                  {/* show only first 4 FAQs */}
                   <div className="faqs-section">
-                    {Object.values(topicFaqs)
-                      .flat()
-                      .slice(0, 4)
-                      .map((q, i) => (
-                        <div
-                          key={i}
-                          className="faq-item"
-                          onClick={() => setActiveTopic(topics[i % topics.length].id)}
-                        >
-                          <span>{q}</span>
-                          <FaAngleRight className="faq-icon" />
-                        </div>
-                      ))}
+                    {Object.keys(topicFaqs).flatMap(topic =>
+                      topicFaqs[topic].slice(0, 2).map((q, i) => { // top 4 FAQs
+                        const key = `${topic}-${i}`;
+                        return (
+                          <div key={key} className="faq-item details-faq" onClick={() => toggleFaq(topic, i)}>
+                            <div className="faq-question">
+                              <span>{q}</span>
+                              {openFaqs[key] ? <FaAngleUp className="faq-icon"/> : <FaAngleDown className="faq-icon"/>}
+                            </div>
+                            {openFaqs[key] && <div className="faq-answer"><p>{getAnswer(q)}</p></div>}
+                          </div>
+                        )
+                      })
+                    )}
                   </div>
                 </>
               )}
@@ -195,11 +194,7 @@ export default function GetHelp() {
                 <>
                   <div className="topics-row">
                     {topics.map((t) => (
-                      <div
-                        key={t.id}
-                        className={`row-topic-btn ${activeTopic === t.id ? "active" : ""}`}
-                        onClick={() => setActiveTopic(t.id)}
-                      >
+                      <div key={t.id} className={`row-topic-btn ${activeTopic === t.id ? "active" : ""}`} onClick={() => setActiveTopic(t.id)}>
                         <div className={`row-icon-circle ${t.color}`}>{t.icon}</div>
                         <span>{t.label}</span>
                         {activeTopic === t.id && <div className="active-line"></div>}
@@ -207,45 +202,32 @@ export default function GetHelp() {
                     ))}
                   </div>
 
-                 {/* details box */}
-<div className="topic-details-box">
-  <div className="details-header">
-    <div className={`details-icon ${topics.find(t=>t.id===activeTopic).color}`}>
-      {topics.find(t=>t.id===activeTopic).icon}
-    </div>
-    <div>
-      <h4>{topics.find(t=>t.id===activeTopic).label}</h4>
-      <p>{topics.find(t=>t.id===activeTopic).desc}</p>
-    </div>
-  </div>
+                  <div className="topic-details-box">
+                    <div className="details-header">
+                      <div className={`details-icon ${topics.find(t => t.id === activeTopic).color}`}>
+                        {topics.find(t => t.id === activeTopic).icon}
+                      </div>
+                      <div>
+                        <h4>{topics.find(t => t.id === activeTopic).label}</h4>
+                        <p>{topics.find(t => t.id === activeTopic).desc}</p>
+                      </div>
+                    </div>
 
-  {/* FAQ list with expand/collapse */}
-  <div className="details-faqs">
-    {topicFaqs[activeTopic].map((q, i) => (
-      <div 
-        key={i} 
-        className="faq-item details-faq" 
-        onClick={() => setOpenFaq(openFaq === i ? null : i)}
-      >
-        <div className="faq-question">
-          <span>{q}</span>
-          {openFaq === i ? <FaAngleDown className="faq-icon"/> : <FaAngleRight className="faq-icon"/>}
-        </div>
-
-        {/* Answer show only when open */}
-        {openFaq === i && (
-          <div className="faq-answer">
-            <p>
-              This is a placeholder answer for: <strong>{q}</strong>.  
-              (Later tum apna actual answer add kar sakte ho.)
-            </p>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-</div>
-
+                    <div className="details-faqs">
+                      {topicFaqs[activeTopic].map((q, i) => {
+                        const key = `${activeTopic}-${i}`;
+                        return (
+                          <div key={key} className="faq-item details-faq" onClick={() => toggleFaq(activeTopic, i)}>
+                            <div className="faq-question">
+                              <span>{q}</span>
+                              {openFaqs[key] ? <FaAngleUp className="faq-icon"/> : <FaAngleDown className="faq-icon"/>}
+                            </div>
+                            {openFaqs[key] && <div className="faq-answer"><p>{getAnswer(q)}</p></div>}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
                 </>
               )}
             </div>
