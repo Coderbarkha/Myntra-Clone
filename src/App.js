@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GetHelp from "./pages/GetHelp";
+import SingleProduct from "./pages/SingleProduct";
 
 
 function App() {
@@ -18,13 +19,16 @@ function App() {
       <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<><Navbar /><Home />  <Footer /></>} />
-          <Route path="/products" element={<><Navbar /><Products /> <Footer /></>} />
+          <Route path="/products/:category/:subcategory" element={<><Navbar/><Products /><Footer/></>} />
+          <Route path="/product/:id" element={<><Navbar /><SingleProduct /><Footer /></>} />
+
           <Route path="/wishlist" element={<><Navbar /><Wishlist /> <Footer /></>} />
           <Route path="/login" element={<><Navbar hideProfile={true} /><Login /></>} />
           <Route path="/terms" element={<><Navbar/><TermsOfUse /><Footer/></>} />
           <Route path="/privacy" element={<><Navbar/><PrivacyPolicy /><Footer/></>} />
           <Route path="/help" element={<><Navbar/><GetHelp /><Footer/></>} />
         </Routes>
+        
       </div>
     </Router>
   );
