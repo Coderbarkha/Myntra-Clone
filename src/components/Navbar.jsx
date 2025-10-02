@@ -164,10 +164,10 @@ function Navbar({ hideProfile }) {
           <div>Wishlist</div>
         </Link>
 
-        <div className="text-center">
+        <Link className="text-center me-4 cursor-pointer navbar-link" to="/cart">
           <i className="bi bi-bag "></i>
           <div>Bag</div>
-        </div>
+        </Link>
       </div>
     </nav>
   );

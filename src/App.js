@@ -11,6 +11,7 @@ import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GetHelp from "./pages/GetHelp";
 import SingleProduct from "./pages/SingleProduct";
+import Cart from "./pages/Cart";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/product/:id" element={<><Navbar /><SingleProduct /><Footer /></>} />
 
           <Route path="/wishlist" element={<><Navbar /><Wishlist /> <Footer /></>} />
+          <Route path="/cart" element={<><Navbar /><Cart /> <Footer /></>} />
           <Route path="/login" element={<><Navbar hideProfile={true} /><Login /></>} />
           <Route path="/terms" element={<><Navbar/><TermsOfUse /><Footer/></>} />
           <Route path="/privacy" element={<><Navbar/><PrivacyPolicy /><Footer/></>} />
