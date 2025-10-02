@@ -598,78 +598,221 @@ footer a:hover{
   max-height: 90%;
   object-fit: cover;        /* image stretch na ho, maintain ratio ho */
 }
+.continueshopping-btn {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: 1px solid  blue;   /* blue outline */
+  color:blue;
+  background: transparent;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+}
 /* Cart (empty state) */
-.cart-container{
+.cart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  background-color: #f7f7f7;
+  gap: 12px; /* kam gap rakho */
+  background-color: white;
   height: 70vh;
-  padding: 36px 16px;
+  padding: 24px 16px;
   color: #333;
+  text-align: center; /* sab center align ho jaye */
 }
-.cart-title{
-  font-size: 26px;
-  font-weight: 700;
-  color: #282c3f; /* dark heading like Myntra */
-  margin: 0;
-}
-.cart-sub{
-  color: #595f66;
-  max-width: 620px;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-}
-.cart-empty-illustration{
-  width: 220px;
-  height: 160px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+
+.cart-empty-illustration {
+  width: 400px;   /* thoda bada */
+  max-width: 90%; /* responsive */
+  margin: 0 auto; /* center */
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #f0f0f0;
+}
+
+.cart-empty-illustration img {
+  width: 55%;   /* image ko poori width pe fit karo */
+  height: 100%;  /* height auto so it scales proportionally */
+}
+
+.cart-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #282c3f;
+  margin-top: 12px; /* sirf chhoti si spacing */
+}
+
+.cart-sub {
+  color: #595f66;
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 8px; /* kam spacing */
 }
 .cart-empty-illustration .bi-bag{
   font-size: 56px;
   color: #ff3f6c; /* Myntra pink accent */
 }
 /* Continue button */
-.continue-link { text-decoration: none; }
-.continue-btn {
+.wishlist-link 
+{
+   text-decoration: none; 
+}
+.wishlist-btn {
   margin-top: 12px;
   padding: 10px 20px;
-  border: 2px solid #1976d2;   /* blue outline */
-  color: #1976d2;
+  border: 1px solid  #ff3f6c;  
+  color: #ff3f6c;
   background: transparent;
   font-weight: 600;
   text-transform: uppercase;
-  border-radius: 6px;
+  border-radius: 3px;
+  font-size: 15px;
   cursor: pointer;
-}
-.continue-btn:hover {
-  background: rgba(25,118,210,0.06);
 }
 .navbar-link {
   text-decoration: none !important; /* forcefully underline hatao */
   color: black;
   display: inline-block;  /* safe rakhne ke liye */
 }
-
-.navbar-link:hover {
-  color: #ff3f6c; /* Myntra hover color */
+/* cart -navbar */
+.cart-navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 36px;
+border-bottom: 1px solid #e0e0e0;
+  background: #fff;
 }
-.mega {
-  display: none;
+
+.cart-nav-left .cart-logo {
+  height: 36px;
+}
+.cart-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+}
+.cart-nav-center .step {
+  position: relative;
+  padding-bottom: 4px;
+}
+.cart-nav-center .step.active {
+  color: #0ce4f3;
+}
+.cart-nav-center .step.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #0ce4f3;
+}
+.cart-nav-center .line {
+  width: 40px;
+  border-bottom: 2px dashed #ccc;
+}
+.cart-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color:black;
+}
+.secure-icon {
+  font-size: 16px;
+  color: #0ce4f3;
+}
+/* cart footer */
+.cart-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-footer-left{
+  display: flex;
+  align-items: center;
+  margin-left: 82px;
+}
+
+.cart-footer img{
+  height:40px;
+  object-fit: contain;
+}
+.cart-footer-right{
+  display: flex;
+  align-items: center;
+}
+.cart-footer-link{
+  text-decoration: none;
+  font-size: 13px;
+  color:#888;
+  margin-right: 52px;
+}
+.cart-footer-link:hover{
+  color:#555;
+}
+/* Mega menu box */
+.mega-parent {
+  position: relative;
+}
+
+.mega-menu {
+  position: absolute;
   top: 100%;
   left: 0;
-  min-width: 500px;
-  z-index: 1000;
+  width: 800px; /* bada box */
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  display: none; /* by default hidden */
+  z-index: 999;
 }
+
+.mega-parent:hover .mega-menu {
+  display: block; /* hover par dikhe */
+}
+
+/* Column heading */
+.mega-heading {
+  font-size: 14px;
+  font-weight: 600;
+  color: gray;
+  margin-bottom: 8px;
+}
+
+/* Subcategory list */
+.mega-list li {
+  margin-bottom: 4px;
+}
+
+.mega-list li a {
+  font-size: 14px;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mega-list li a:hover {
+  color: #000; /* hover black */
+  font-weight: 500;
+}
+
+/* Divider line between groups */
+.mega-divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 12px 0;
+}
+
 
 .nav-item:hover .mega {
   display: block;

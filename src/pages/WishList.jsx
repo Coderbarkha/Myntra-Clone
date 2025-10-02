@@ -19,7 +19,7 @@ function Wishlist() {
      </div>
       {/* Continue Shopping button (link to /products) */}
       <Link to="/products" className="continue-link">
-        <button className="continue-btn">CONTINUE SHOPPING</button>
+        <button className="continueshopping-btn">CONTINUE SHOPPING</button>
       </Link>
     </div>
   );

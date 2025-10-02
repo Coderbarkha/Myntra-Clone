@@ -1,41 +1,46 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import CartNavbar from "./CartNavbar";
+import CartFooter from "../CartFooter";
 import { Link } from "react-router-dom";
-import "../styles/global.css";
 import cartImg from "../assets/cart.PNG";
+import "../styles/global.css";
 
-const Cart = () => {
+function Cart() {
+  // Currently this page shows the empty-cart state (like Myntra).
+  // Later you can replace `isEmpty` with real cart state from context.
+  const isEmpty = true;
+
   return (
-    <div>
-      <main className="container" style={{ padding: "36px 12px" }}>
-        <div className="cart-container">
-          <div className="cart-empty-illustration">
-            {/* use existing cart image if available, else fallback to icon */}
-            {cartImg ? (
-              <img src={cartImg} alt="empty cart" style={{ maxWidth: "90%", maxHeight: "90%" }} />
-            ) : (
-              <i className="bi bi-bag"></i>
-            )}
+    <>
+    <CartNavbar/>
+      <div className="container" style={{ padding: "36px 0" }}>
+        {isEmpty ? (
+          <div className="cart-container">
+            <div className="cart-empty-illustration">
+              <img src={cartImg} alt="Empty cart" style={{ maxWidth: "90%", maxHeight: "90%" }} />
+            </div>
+
+            <h2 className="cart-title">Hey It feels light.</h2>
+
+            <p className="cart-sub">
+              Add items you like to your bag. We’ll keep them here while you shop.
+            </p>
+
+            <Link to="/wishlist" className="wishlist-link">
+              <button className="wishlist-btn">ADD ITEMS FROM WISHLIST</button>
+            </Link>
           </div>
+        ) : (
+          <div>
+            {/* TODO: render actual cart items when cart is implemented */}
+            <p>Cart items will be shown here.</p>
+          </div>
+        )}
 
-          <h2 className="cart-title">Your bag is empty</h2>
-
-          <p className="cart-sub">
-            Good things take time. Start exploring to add your favourites to the
-            bag.
-          </p>
-
-          <Link to="/products" className="continue-link">
-            <button className="continue-btn" style={{ borderRadius: 6 }}>
-              Continue shopping
-            </button>
-          </Link>
-        </div>
-      </main>
-
-    </div>
+      </div>
+        <CartFooter/>
+    </>
   );
-};
+}
 
 export default Cart;

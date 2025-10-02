@@ -24,7 +24,7 @@ function App() {
           <Route path="/product/:id" element={<><Navbar /><SingleProduct /><Footer /></>} />
 
           <Route path="/wishlist" element={<><Navbar /><Wishlist /> <Footer /></>} />
-          <Route path="/cart" element={<><Navbar /><Cart /> <Footer /></>} />
+          <Route path="/cart" element={<><Cart /> </>} />
           <Route path="/login" element={<><Navbar hideProfile={true} /><Login /></>} />
           <Route path="/terms" element={<><Navbar/><TermsOfUse /><Footer/></>} />
           <Route path="/privacy" element={<><Navbar/><PrivacyPolicy /><Footer/></>} />

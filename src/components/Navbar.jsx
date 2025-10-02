@@ -4,6 +4,90 @@ import "../styles/global.css";
 import { Link } from "react-router-dom";
 
 function Navbar({ hideProfile }) {
+  // simple slug function for link paths
+const slugify = (s) =>
+  s
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^\w\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+// sample dynamic data: array of columns; har column me groups array (title + optional items)
+const menMega = [
+  [ // column 1
+    {
+      title: "Topwear",
+      items: [
+        "T-Shirts",
+        "Casual Shirts",
+        "Formal Shirts",
+        "Sweatshirts",
+        "Sweaters",
+        "Jackets",
+        "Blazers & Coats",
+        "Suits",
+        "Rain Jackets",
+      ],
+    },
+    {
+      title: "Indian & Festive Wear",
+      items: [
+        "Kurtas & Kurta Sets",
+        "Sherwanis",
+        "Nehru Jackets",
+        "Dhotis",
+      ],
+    },
+  ],
+  [ // column 2
+    {
+      title: "Bottomwear",
+      items: [
+        "Jeans",
+        "Casual Trousers",
+        "Formal Trousers",
+        "Shorts",
+        "Track Pants & Joggers",
+      ],
+    },
+    {
+      title: "Other",
+      items: [], // heading without sub-items
+    },
+  ],
+  [ // column 3
+    {
+      title: "Innerwear And Sleepwear",
+      items: [
+        "Briefs and Trunks",
+        "Boxers",
+        "Vests",
+        "Sleepwear & Loungewear",
+        "Thermals",
+      ],
+    },
+    {
+      title: "Plus Size",
+      items: [],
+    },
+  ],
+  [ // column 4
+    {
+      title: "Footwear",
+      items: [
+        "Casual Shoes",
+        "Sports Shoes",
+        "Formal Shoes",
+        "Sneakers",
+        "Sandals & Floaters",
+        "Flip Flops",
+        "Socks",
+      ],
+    },
+  ],
+];
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light px-3">
       {/* Logo */}
@@ -14,59 +98,47 @@ function Navbar({ hideProfile }) {
       {/* Middle Nav Links */}
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav fw-bold">
-          <li className="nav-item position-relative mx-2">
-            <Link className="nav-link" to="/products/men">
-              Men
-            </Link>
+       <li className="nav-item position-relative mx-2 mega-parent">
+  <Link className="nav-link" to="/products/men">Men</Link>
 
-            {/* Mega Menu Box */}
-            <div className="mega position-absolute bg-white border p-3">
-              <div className="row">
-                <div className="col">
-                  <h6>Topwear</h6>
-                  <ul className="list-unstyled">
-                    <li>
-                      <Link
-                        to="/products/men/tshirts"
-                        className="no-underline text-black"
-                      >
-                        T-Shirts
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/products/men/shirts"
-                        className="no-underline text-black"
-                      >
-                        Shirts
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col">
-                  <h6>Bottomwear</h6>
-                  <ul className="list-unstyled">
-                    <li>
-                      <Link
-                        to="/products/men/jeans"
-                        className="no-underline text-black"
-                      >
-                        Jeans
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/products/men/trousers"
-                        className="no-underline text-black"
-                      >
-                        Trousers
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
+  <div className="mega-menu">
+    <div className="row">
+      <div className="col">
+        <h6 className="mega-heading">Topwear</h6>
+        <ul className="list-unstyled mega-list">
+          <li><Link to="/products/men/tshirts">T-Shirts</Link></li>
+          <li><Link to="/products/men/casual-shirts">Casual Shirts</Link></li>
+          ...
+        </ul>
+
+        <h6 className="mega-heading">Indian & Festive Wear</h6>
+        <ul className="list-unstyled mega-list">
+          <li><Link to="/products/men/kurtas">Kurtas & Kurta Sets</Link></li>
+          ...
+        </ul>
+      </div>
+
+      <div className="col">
+        <h6 className="mega-heading">Bottomwear</h6>
+        <ul className="list-unstyled mega-list">
+          <li><Link to="/products/men/jeans">Jeans</Link></li>
+          ...
+        </ul>
+      </div>
+
+      <div className="col">
+        <h6 className="mega-heading">Footwear</h6>
+        <ul className="list-unstyled mega-list">
+          <li><Link to="/products/men/sneakers">Sneakers</Link></li>
+          ...
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>
+
+
+
 
           <li className="nav-item mx-2">
             <a className="nav-link" href="#">
