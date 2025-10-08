@@ -99,7 +99,7 @@ const menMega = [
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav fw-bold">
        <li className="nav-item position-relative mx-2 mega-parent">
-  <Link className="nav-link" to="/products/men">Men</Link>
+    <Link className="nav-link" to="/products/men">Men</Link>
 
   <div className="mega-menu">
     <div className="row">
@@ -108,13 +108,22 @@ const menMega = [
         <ul className="list-unstyled mega-list">
           <li><Link to="/products/men/tshirts">T-Shirts</Link></li>
           <li><Link to="/products/men/casual-shirts">Casual Shirts</Link></li>
-          ...
+          <li><Link to="/products/men/casual-shirts">Formal Shirts</Link></li>
+          <li><Link to="/products/men/casual-shirts">SweatShirts</Link></li>
+          <li><Link to="/products/men/casual-shirts">Sweaters</Link></li>
+          <li><Link to="/products/men/casual-shirts">Jackets</Link></li>
+          <li><Link to="/products/men/casual-shirts">Blazers & Coats</Link></li>
+          <li><Link to="/products/men/casual-shirts">Casual Shirts</Link></li>
+          <li><Link to="/products/men/casual-shirts">Suits</Link></li>
+          <li><Link to="/products/men/casual-shirts">Rain Jackets</Link></li>
         </ul>
 
         <h6 className="mega-heading">Indian & Festive Wear</h6>
         <ul className="list-unstyled mega-list">
           <li><Link to="/products/men/kurtas">Kurtas & Kurta Sets</Link></li>
-          ...
+          <li><Link to="/products/men/casual-shirts">Sherwanis</Link></li>
+          <li><Link to="/products/men/casual-shirts">Nehru Jackets</Link></li>
+          <li><Link to="/products/men/casual-shirts">Dhotis</Link></li>
         </ul>
       </div>
 
