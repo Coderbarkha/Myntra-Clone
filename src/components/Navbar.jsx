@@ -131,7 +131,10 @@ const menMega = [
         <h6 className="mega-heading">Bottomwear</h6>
         <ul className="list-unstyled mega-list">
           <li><Link to="/products/men/jeans">Jeans</Link></li>
-          ...
+          <li><Link to="/products/men/casualtrousers">Casual Trousers</Link></li>
+          <li><Link to="/products/men/formaltrouser">Formal Trouser</Link></li>
+          <li><Link to="/products/men/shorts">Shorts</Link></li>
+          <li><Link to="/products/men/trackpants">Track Pants & Joggers</Link></li>
         </ul>
       </div>
 
